@@ -1,0 +1,200 @@
+# When Fluency Beats Compliance: Judgment Reversal in Evaluating Domain-Specific Writing
+
+This repository contains the code, prompts, and skill catalogs for the paper
+**"When Fluency Beats Compliance: Judgment Reversal in Evaluating Domain-Specific Writing."**
+
+We study whether LLM-generated text that reads fluently actually complies with the writing conventions
+that experts follow in specialized domains. For nine tasks spanning three domains (**finance**,
+**medical**, **law**) and three task types (**data-to-text**, **rewriting**, **summarization**), we:
+
+1. **Extract** domain-specific writing *skills* from human-written references in the training split.
+2. **Evaluate** human-written and LLM-generated outputs on the test split against the same
+   skill-based checklist.
+3. **Measure judgment reversal**: how often the LLM output satisfies more checklist items than the
+   human reference (the **Judgment Reversal Rate, JRR**).
+
+## Repository Structure
+
+```text
+.
+├── LICENSE
+├── config.yaml                 # Models, batch sizes, and per-dataset settings
+├── requirements.txt
+├── common/                     # Shared code (all nine tasks use the same pipeline)
+│   ├── run.py                  # Single command-line entry point
+│   ├── config.py
+│   ├── generation.py           # LLM output generation for the test split
+│   ├── skill_schema.py
+│   ├── verify.py               # Repository-level sanity checks
+│   └── pipeline/
+│       ├── data.py             # Loads TRAIN/TEST rows {id, source, human, llm}
+│       ├── contracts.py        # Per-stage input/output contracts, JSON schemas, default DEDUPE prompt
+│       ├── llm.py              # Strict-JSON API client (disk cache, validated retries)
+│       ├── extract.py
+│       ├── evaluate.py
+│       ├── verify.py
+│       └── scoring.py
+├── prompts/<domain>/<task>.py  # Task-specific prompts: GENERATION, EXTRACT, MATCH, DEDUPE, JUDGE
+├── skills/<domain>.json        # Domain skill catalogs (task-specific skills under topics.<task>.skills)
+├── outputs/                    # Example evaluation output
+├── data/<dataset>/             # train.json / test.json (one sample row each)
+└── tests/                      # Offline tests
+```
+
+Datasets are named `<domain>_<task>`, e.g. `finance_dtt`, `medical_summary`, `law_rewriting`.
+
+## Installation
+
+Tested with Python 3.13.
+
+```bash
+pip install -r requirements.txt
+cp .env.example .env   # then fill in your API keys
+```
+
+The following environment variables are read from `.env`:
+
+| Variable | Used for |
+|---|---|
+| `OPENAI_API_KEY` | OpenAI models |
+| `OPENROUTER_API_KEY` | Models served through OpenRouter |
+
+`openai` is only required for `generate --execute`; extraction and evaluation use the standard-library
+HTTP client.
+
+## Data
+
+Every dataset uses the same format. `data/<dataset>/train.json` and `test.json` are lists of rows:
+
+```json
+[
+  {
+    "id": "155679",
+    "source": "If your mobile device is turned on, our network is collecting data about where it is.",
+    "human": "Our network is collecting geolocation data when your mobile device is turned on.",
+    "llm": "When your mobile device is turned on, our network collects data about its location."
+  }
+]
+```
+
+| Field | Description |
+|---|---|
+| `id` | Unique row ID |
+| `source` | Task input: a string for rewriting and summarization, a JSON object for data-to-text |
+| `human` | Human-written output |
+| `llm` | LLM-generated output (TEST only) |
+
+### Sources
+
+| Domain | Task | Dataset | Description | License |
+|---|---|---|---|---|
+| Finance | data-to-text | [DataTales](https://github.com/yajingyang/DataTales) | Write a daily market commentary from a one-week market price table | Not specified |
+| Finance | rewriting | [FEINA](https://huggingface.co/datasets/saul1917/FEINA) | Simplify Spanish financial-education sentences | Creative Commons (version not specified) |
+| Finance | summarization | [ECTSum](https://github.com/rajdeep345/ECTSum) | Summarize earnings-call transcripts into Reuters-style bullet points | GPL-3.0 (repository) |
+| Law | data-to-text | [EPA ICIS-FE&C / ECHO](https://echo.epa.gov/tools/data-downloads) | Write a case summary from a structured environmental enforcement record | Public domain |
+| Law | rewriting | [APPSI-139](https://github.com/EnlightenedAI/APPSI-139) | Rewrite privacy-policy passages into plain-language interpretations | CC BY 4.0 |
+| Law | summarization | [CaseSumm](https://huggingface.co/datasets/ChicagoHAI/CaseSumm) | Summarize U.S. Supreme Court opinions into syllabus-style summaries | CC BY-NC |
+| Medical | data-to-text | [BioLeaflets](https://zenodo.org/record/5196178) | Write a package-leaflet section from its extracted entities | CC BY 4.0 |
+| Medical | rewriting | [PLABA](https://osf.io/rnpmf/) | Adapt biomedical abstracts into plain language | U.S. Government work |
+| Medical | summarization | PubMed ([PMC Open Access subset](https://pmc.ncbi.nlm.nih.gov/tools/openftlist/)) | Generate the abstract of a biomedical article from its body | Per-article license |
+
+The sample rows in `data/` are redistributed under the licenses of their original datasets.
+
+### Sample Data
+
+This repository includes **one** TRAIN example and **one** TEST example per dataset. To reproduce the
+experiments, place the full splits (500 TRAIN and 160 TEST examples per dataset) at the same paths.
+`python -m common.verify` reports `sample_data: true` when a TEST split contains fewer examples than
+`evaluation_pairs` (160).
+
+## Pipeline
+
+```text
+data/<dataset>/train.json ──extract──▶ runs/<d>/<t>/pipeline/extraction/skills.json ──┐
+                                                                                       │ build-skills
+                                                                                       ▼ (dtt + rewriting + summary)
+                                                                     runs/<d>/pipeline/skills.json
+                                                                     (reviewed, then saved as skills/<d>.json)
+
+data/<dataset>/test.json ──evaluate──▶ MATCH → DEDUPE → JUDGE(human, llm) → scores ◀── skills/<d>.json (task subset)
+                                          │
+                        runs/<d>/<t>/pipeline/evaluation/ ──verify──▶ verification.json
+```
+
+| Stage | Description |
+|---|---|
+| `generate` | Generates LLM outputs for the TEST sources. |
+| `extract` | Runs each EXTRACT pass over every TRAIN pair and keeps only observations marked `quality: supported` as skills. |
+| `build-skills` | Merges the extraction results of a domain's three tasks into a single domain catalog. |
+| `evaluate` | For each TEST source, MATCHes all skills of the task, DEDUPEs the applicable ones, and JUDGEs the human and LLM outputs (pass/fail) on each item. |
+| `verify` | Re-validates the stored matching, deduplication, and judgments and recomputes scores without any API calls. |
+
+**Scoring.** Each checklist item that passes is worth one point. For each test example, the output
+with more passing items wins (ties are counted separately). **JRR** is the fraction of examples in which
+the LLM output wins over the human reference.
+
+**Implementation notes.**
+
+- `EXTRACT` is either a single prompt string or a dictionary `{pass_name: prompt}` for multi-perspective extraction.
+- DEDUPE always runs (whenever more than one skill applies). A task may override its prompt; otherwise
+  the shared prompt in `common/pipeline/contracts.py` is used.
+- Task prompts contain only the instructions; input/output formatting is appended by the pipeline.
+- Every quoted span is checked to be an exact substring of the source or output. Invalid quotes are
+  reported back to the model and the request is retried.
+
+## Usage
+
+Without `--execute`, every command only previews the configuration and prompts.
+
+```bash
+python -m common.run inspect      --domain medical --task rewriting
+python -m common.run generate     --domain medical --task rewriting --execute [--attach]
+python -m common.run extract      --domain medical --task rewriting --execute [--limit N] [--model sol]
+python -m common.run build-skills --domain medical
+python -m common.run evaluate     --domain medical --task rewriting --execute [--skills runs/medical/pipeline/skills.json]
+python -m common.run verify       --domain medical --task rewriting
+```
+
+- `--domain`: `finance`, `medical`, or `law`; `--task`: `dtt`, `rewriting`, or `summary`.
+- Models, batch sizes, and the number of evaluation pairs are set in `config.yaml` under `defaults`
+  (overridable per dataset via `settings`) and `models`. `--model` accepts a key of `models` or a raw model ID.
+- Requests are cached under `cache/` in the output directory, so an interrupted run resumes by
+  re-running the same command. Re-using a directory with a different model, prompt, or skill set is
+  refused; pass `--output` to write to a new directory.
+- `generate --attach` writes the generated outputs to the `llm` field of `data/<dataset>/test.json`.
+
+## Outputs
+
+Each stage writes to `runs/<domain>/<task>/pipeline/<stage>/` unless `--output` is given.
+
+| File | Content |
+|---|---|
+| `extraction/observations.json` | All observations from every EXTRACT pass |
+| `extraction/skills.json` | Skills kept from `supported` observations |
+| `evaluation/checklists/<i>.json` | MATCH verdicts, DEDUPE decisions, and the final checklist for TEST example `i` |
+| `evaluation/judgments/<i>.json` | Per-item pass/fail judgments for the human and LLM outputs |
+| `evaluation/pairs/<i>.json` | Pass counts and the outcome (`human_wins`, `tie`, `llm_wins`) |
+| `evaluation/summary.json` | Win/tie/loss counts, `jrr`, checklist sizes, and pass rates |
+| `evaluation/verification.json` | Result of the offline `verify` stage |
+
+[`outputs/example_law_rewriting.json`](outputs/example_law_rewriting.json) shows one TEST example from
+`law_rewriting` end to end: the matched skills (the one removed by DEDUPE is marked with `dedupe`), the final checklist with per-item
+judgments for both outputs, and the resulting scores.
+
+Every run folder also contains `manifest.json`, which records the model, prompt hashes, and settings, and
+`failures.json`, which lists failed requests.
+
+## Testing
+
+```bash
+python -m unittest discover -s tests
+python -m common.verify
+```
+
+The tests use a fake API client to run `extract → evaluate → verify` for all nine tasks, and check that
+evaluation filters the domain catalog produced by `build-skills` down to the skills of the given task.
+
+## License
+
+The code in this repository is released under the [MIT License](LICENSE). Datasets and the sample
+rows in `data/` remain under the licenses of their original sources (see [Sources](#sources)).

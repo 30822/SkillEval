@@ -1,0 +1,111 @@
+# Every domain/task runs the same pipeline (common/pipeline):
+#   extract  TRAIN pair -> observations (one call per EXTRACT pass) -> supported skills
+#   evaluate TEST source -> MATCH bank skills -> DEDUPE -> JUDGE human and llm -> pass counts
+#   verify   offline re-validation and re-scoring of an evaluation run
+# A task differs only in its prompt module. Per-dataset `settings` may override `defaults`.
+defaults:
+  model: luna
+  workers: 200
+  max_output_tokens: 16000
+  evaluation_pairs: 160
+  match_batch_size: 40
+  judge_batch_size: 40
+generation:
+  model: gpt-6-luna
+  reasoning_effort: medium
+  max_output_tokens: 16384
+  workers: 8
+  limit: 160
+  output_dir: runs/common/generation
+  preview_output_dir: runs/common/prompt_preview
+  timeout_seconds: 180
+  max_retries: 3
+models:
+  luna:
+    id: gpt-6-luna
+    provider: openai
+    reasoning: task_specific
+  sol:
+    id: gpt-6-sol
+    provider: openai
+    service_tier: flex
+    reasoning: none
+  sonnet:
+    id: anthropic/claude-sonnet-5.5
+    provider: openrouter
+    reasoning: task_specific
+  haiku:
+    id: anthropic/claude-haiku-5.5
+    provider: openrouter
+    reasoning: none
+  gemini_pro:
+    id: google/gemini-3.1-pro-preview
+    provider: openrouter
+    reasoning: low
+  gemini_flash:
+    id: google/gemini-3.8-flash
+    provider: openrouter
+    reasoning: low
+  deepseek:
+    id: deepseek/deepseek-v4.1-flash
+    provider: openrouter
+    reasoning: none
+  qwen:
+    id: qwen/qwen3.8-27b
+    provider: openrouter
+    reasoning: none
+datasets:
+  finance_dtt:
+    domain: finance
+    task: dtt
+    prompt_module: prompts.finance.dtt
+    skills: skills/finance.json
+    skill_count: 1962
+  finance_rewriting:
+    domain: finance
+    task: rewriting
+    prompt_module: prompts.finance.rewriting
+    skills: skills/finance.json
+    skill_count: 2372
+  finance_summary:
+    domain: finance
+    task: summary
+    prompt_module: prompts.finance.summary
+    skills: skills/finance.json
+    skill_count: 1315
+  medical_dtt:
+    domain: medical
+    task: dtt
+    prompt_module: prompts.medical.dtt
+    skills: skills/medical.json
+    skill_count: 1360
+  medical_rewriting:
+    domain: medical
+    task: rewriting
+    prompt_module: prompts.medical.rewriting
+    skills: skills/medical.json
+    skill_count: 956
+  medical_summary:
+    domain: medical
+    task: summary
+    prompt_module: prompts.medical.summary
+    skills: skills/medical.json
+    skill_count: 2015
+  law_dtt:
+    domain: law
+    task: dtt
+    prompt_module: prompts.law.dtt
+    skills: skills/law.json
+    skill_count: 270
+  law_rewriting:
+    domain: law
+    task: rewriting
+    prompt_module: prompts.law.rewriting
+    skills: skills/law.json
+    skill_count: 273
+  law_summary:
+    domain: law
+    task: summary
+    prompt_module: prompts.law.summary
+    skills: skills/law.json
+    skill_count: 1208

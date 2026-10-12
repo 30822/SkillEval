@@ -1,0 +1,75 @@
+[
+  {
+    "id": "7D0F9DB1E0F8A1C9C6E92EE8D4C4713B",
+    "source": {
+      "product_name": "Azopt",
+      "entities": [
+        {
+          "text": "azopt",
+          "type": "PRODUCT_NAME"
+        },
+        {
+          "text": "azopt",
+          "type": "BRAND_NAME",
+          "category": "MEDICATION"
+        },
+        {
+          "text": "brinzolamide",
+          "type": "GENERIC_NAME",
+          "category": "MEDICATION"
+        },
+        {
+          "text": "a group of medicines",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "carbonic anhydrase inhibitors",
+          "type": "GENERIC_NAME",
+          "category": "MEDICATION"
+        },
+        {
+          "text": "pressure within the eye",
+          "type": "PROBLEM"
+        },
+        {
+          "text": "azopt eye drops",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "high pressure in the eye",
+          "type": "PROBLEM"
+        },
+        {
+          "text": "an illness",
+          "type": "PROBLEM"
+        },
+        {
+          "text": "glaucoma",
+          "type": "DX_NAME",
+          "category": "MEDICAL_CONDITION"
+        },
+        {
+          "text": "the pressure",
+          "type": "TEST"
+        },
+        {
+          "text": "eye",
+          "type": "SYSTEM_ORGAN_SITE",
+          "category": "ANATOMY"
+        },
+        {
+          "text": "damage",
+          "type": "DX_NAME",
+          "category": "MEDICAL_CONDITION"
+        },
+        {
+          "text": "sight",
+          "type": "DX_NAME",
+          "category": "MEDICAL_CONDITION"
+        }
+      ]
+    },
+    "human": "azopt contains brinzolamide which belongs to a group of medicines called carbonic anhydrase inhibitors. it reduces pressure within the eye. azopt eye drops are used to treat high pressure in the eye. this pressure can lead to an illness called glaucoma. if the pressure in the eye is too high, it can damage your sight.",
+    "llm": "Azopt is identified as a product and brand name. The recognized medication terms include brinzolamide and carbonic anhydrase inhibitors, and the text also mentions a group of medicines and Azopt eye drops.\n\nOther terms refer to pressure within the eye, high eye pressure, glaucoma, an illness, the eye, and possible damage to sight. The entity list does not specify how these terms are linked, so it does not establish an indication or treatment effect."
+  }
+]

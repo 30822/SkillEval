@@ -1,0 +1,245 @@
+[
+  {
+    "id": "epa_3603725667",
+    "source": {
+      "case": {
+        "ACTIVITY_ID": "3603725667",
+        "ACTIVITY_NAME": "GENE'S ORANGE MARKET, LLC (GENE'S ORANGE MARKET)",
+        "REGION_CODE": "03",
+        "FISCAL_YEAR": "2023",
+        "CASE_NUMBER": "03-2023-0139",
+        "CASE_NAME": "GENE'S ORANGE MARKET, LLC (GENE'S ORANGE MARKET)",
+        "ACTIVITY_TYPE_CODE": "AFR",
+        "ACTIVITY_TYPE_DESC": "Administrative - Formal",
+        "ACTIVITY_STATUS_CODE": "CLS",
+        "ACTIVITY_STATUS_DESC": "Closed",
+        "ACTIVITY_STATUS_DATE": "11/13/2023",
+        "LEAD": "EPA",
+        "CASE_STATUS_DATE": "11/13/2023",
+        "ENF_OUTCOME_CODE": "ECP",
+        "ENF_OUTCOME_DESC": "Final Order With Penalty",
+        "VOLUNTARY_SELF_DISCLOSURE_FLAG": "N"
+      },
+      "CASE_VIOLATIONS": [
+        {
+          "VIOLATION_TYPE_CODE": "LDAR",
+          "VIOLATION_TYPE_DESC": "UST Leak Detection And Repair"
+        },
+        {
+          "VIOLATION_TYPE_CODE": "UST",
+          "VIOLATION_TYPE_DESC": "UST Requirements, Other Than LDAR"
+        }
+      ],
+      "CASE_ENFORCEMENT_TYPE": [
+        {
+          "ENF_TYPE_CODE": "9006",
+          "ENF_TYPE_DESC": "RCRA 9006 AO For Comp And/Or Pen (UST)"
+        }
+      ],
+      "CASE_RELIEF_SOUGHT": [
+        {
+          "RELIEF_CODE": "PEN",
+          "RELIEF_DESC": "Penalty"
+        }
+      ],
+      "CASE_PENALTIES": [
+        {
+          "FED_PENALTY": "59790",
+          "ST_LCL_PENALTY": "0",
+          "TOTAL_SEP": "0",
+          "COMPLIANCE_ACTION_COST": "8200",
+          "PENALTY_COLLECTED_AMT": "59790"
+        }
+      ],
+      "CASE_LAW_SECTIONS": [
+        {
+          "RANK_ORDER": "1",
+          "STATUTE_CODE": "RCRA",
+          "LAW_SECTION_CODE": "9003",
+          "LAW_SECTION_DESC": "UST Release Detection, Prevention, Correction Regulations",
+          "ECHO_DESC": "Underground Storage Tanks - Subtitle I - Regulatory Petroleum"
+        }
+      ],
+      "CASE_FACILITIES": [
+        {
+          "REGISTRY_ID": "110071316531",
+          "FACILITY_NAME": "GENE'S ORANGE MARKET",
+          "LOCATION_ADDRESS": "2037 PHILPOTT ROAD",
+          "CITY": "SOUTH BOSTON",
+          "STATE_CODE": "VA",
+          "ZIP": "24592",
+          "PRIMARY_NAICS_CODE": "457110"
+        }
+      ],
+      "CASE_DEFENDANTS": [
+        {
+          "DEFENDANT_NAME": "GENE'S ORANGE MARKET, LLC",
+          "NAMED_IN_COMPLAINT_FLAG": "Y",
+          "NAMED_IN_SETTLEMENT_FLAG": "Y"
+        }
+      ],
+      "CASE_MILESTONES": [
+        {
+          "SUB_ACTIVITY_TYPE_CODE": "CAFO",
+          "SUB_ACTIVITY_TYPE_DESC": "Final Order Issued",
+          "ACTUAL_DATE": "09/26/2023"
+        },
+        {
+          "SUB_ACTIVITY_TYPE_CODE": "CPOA",
+          "SUB_ACTIVITY_TYPE_DESC": "Complaint Filed/Proposed Order",
+          "ACTUAL_DATE": "09/26/2023"
+        },
+        {
+          "SUB_ACTIVITY_TYPE_CODE": "CLSA",
+          "SUB_ACTIVITY_TYPE_DESC": "Enforcement Action Closed",
+          "ACTUAL_DATE": "11/13/2023"
+        },
+        {
+          "SUB_ACTIVITY_TYPE_CODE": "ROPNA",
+          "SUB_ACTIVITY_TYPE_DESC": "Enforcement Action Data Entered",
+          "ACTUAL_DATE": "09/26/2023"
+        }
+      ],
+      "CASE_POLLUTANTS": [
+        {
+          "POLLUTANT_CODE": "7659",
+          "POLLUTANT_DESC": "Petroleum products"
+        }
+      ],
+      "CASE_PROGRAMS": [
+        {
+          "PROGRAM_CODE": "RCRASIRP",
+          "PROGRAM_DESC": "Underground Storage Tanks - Subtitle I - Regulatory Petroleum"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSIONS": [
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "ENF_CONCLUSION_NMBR": "1",
+          "ENF_CONCLUSION_ACTION_CODE": "APO",
+          "ENF_CONCLUSION_NAME": "GENE'S ORANGE MARKET, LLC (GENE'S ORANGE MARKET)",
+          "SETTLEMENT_ENTERED_DATE": "09/26/2023",
+          "SETTLEMENT_FY": "2023",
+          "PRIMARY_LAW": "RCRA",
+          "REGION_CODE": "03",
+          "ACTIVITY_TYPE_CODE": "AFR",
+          "FED_PENALTY_ASSESSED_AMT": "59790",
+          "COMPLIANCE_ACTION_COST": "8200"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_POLLUTANTS": [
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064879",
+          "ENVIRONMENTAL_IMPACT_ID": "3600048814",
+          "POLLUTANT_CODE": "6583",
+          "AVERAGE_ANNUAL_VALUE": "16000",
+          "POLLUTANT_UNIT_CODE": "gal",
+          "MEDIA_CODE": "LAN",
+          "MEDIA_DESC": "Land",
+          "SEP_OR_COMP_FLAG": "C"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064881",
+          "ENVIRONMENTAL_IMPACT_ID": "3600048816",
+          "POLLUTANT_CODE": "6583",
+          "AVERAGE_ANNUAL_VALUE": "16000",
+          "POLLUTANT_UNIT_CODE": "gal",
+          "MEDIA_CODE": "LAN",
+          "MEDIA_DESC": "Land",
+          "SEP_OR_COMP_FLAG": "C"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064880",
+          "ENVIRONMENTAL_IMPACT_ID": "3600048815",
+          "POLLUTANT_CODE": "6583",
+          "AVERAGE_ANNUAL_VALUE": "16000",
+          "POLLUTANT_UNIT_CODE": "gal",
+          "MEDIA_CODE": "LAN",
+          "MEDIA_DESC": "Land",
+          "SEP_OR_COMP_FLAG": "C"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_COMPLYING_ACTIONS": [
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064880",
+          "COMP_ACTION_TYPE_CODE": "XIU",
+          "COMP_ACTION_TYPE_DESC": "Implement Release Detection System (UST)",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Prevention of Future Releases"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064879",
+          "COMP_ACTION_TYPE_CODE": "XIP",
+          "COMP_ACTION_TYPE_DESC": "Implement Corrosion Protection System",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Prevention of Future Releases"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064881",
+          "COMP_ACTION_TYPE_CODE": "XIT",
+          "COMP_ACTION_TYPE_DESC": "Implement Tank Overfill/Spill Protection",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Prevention of Future Releases"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064882",
+          "COMP_ACTION_TYPE_CODE": "WMO",
+          "COMP_ACTION_TYPE_DESC": "Monitoring",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Work Practices"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064883",
+          "COMP_ACTION_TYPE_CODE": "WTS",
+          "COMP_ACTION_TYPE_DESC": "Testing/Sampling",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Work Practices"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064884",
+          "COMP_ACTION_TYPE_CODE": "WTA",
+          "COMP_ACTION_TYPE_DESC": "Training",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Work Practices"
+        },
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COMP_ACTION_ID": "3600064885",
+          "COMP_ACTION_TYPE_CODE": "WWP",
+          "COMP_ACTION_TYPE_DESC": "Work Practices",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Work Practices"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_FACILITIES": [
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "ICIS_FACILITY_INTEREST_ID": "3601453633",
+          "FACILITY_UIN": "110071316531",
+          "FACILITY_NAME": "GENE'S ORANGE MARKET",
+          "FACILITY_CITY": "SOUTH BOSTON",
+          "FACILITY_STATE": "VA",
+          "FACILITY_ZIP": "24592"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_DOLLARS": [
+        {
+          "ENF_CONCLUSION_ID": "3600403013",
+          "COST_RECOVERY_AMT": "0",
+          "FED_PENALTY": "59790",
+          "COMPLIANCE_ACTION_COST": "8200",
+          "PENALTY_COLLECTED_AMT": "59790"
+        }
+      ],
+      "CASE_REGIONAL_DOCKETS": [
+        {
+          "REGIONAL_DOCKET_NMBR": "RCRA-03-2023-0139"
+        }
+      ]
+    },
+    "human": "On September 26, 2023, EPA Region III filed a Consent Agreement and Final Order, simultaneously commencing and concluding an administrative enforcement action against Gene's Orange Market, LLC (Respondent), the owner/operator of the facility located at 2037 Philpott Road, South Boston, VA (the Facility), for alleged violations of RCRA Subtitle I, and the Commonwealth of Virginia's federally authorized underground storage tank program.  The settlement will ensure that the underground storage tanks (USTs) at the Facility are properly managed and monitored regularly for leaks and that the Facility is in compliance with RCRA and the federally authorized Commonwealth of Virginia underground storage tank program.  The violations addressed by the settlement include failure to test the automatic tank gauging system annually; failure to perform monthly walkthrough inspections; failure to test overfill functionality; failure to have adequate overfill prevention equipment; failure to inspect the cathodic protection system; failure to maintain documentation of operator training; and failure to test spill prevention equipment.  Respondent is currently in compliance with the requirements and has agreed to pay a penalty of $59,790 to settle the enforcement action for past violations.  The Facility is not in an area of potential Environmental Justice concern.  EPA informed the Commonwealth of Virginia of this enforcement action and received no objection.",
+    "llm": "EPA Region 3 concluded a formal administrative enforcement action against Gene’s Orange Market, LLC, concerning underground storage tank requirements at Gene’s Orange Market, 2037 Philpott Road, South Boston, Virginia. The action addressed UST leak detection and repair and other UST requirements under RCRA Section 9003. A complaint and proposed order were filed, and a final order was issued on September 26, 2023. The order required measures to prevent future releases, including implementing release detection, corrosion protection, and tank overfill/spill protection systems, as well as monitoring, testing and sampling, training, and work practices. EPA assessed a federal penalty of $59,790, which was collected in full; reported compliance action costs were $8,200. The case was closed on November 13, 2023."
+  }
+]

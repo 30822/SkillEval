@@ -1,0 +1,14 @@
+[
+  {
+    "id": "leaprate_gold_20201008",
+    "source": {
+      "input": "Market data (daily open / high / low / close) for the last 7 trading days. D0 is the most recent trading day, the day the report is about.\n\nGold\n  D-6: open 1896.94, high 1900.94, low 1882.19, close 1884.79, volume 6384.0\n  D-5: open 1884.82, high 1910.76, low 1884.82, close 1904.88, volume 6867.0\n  D-4: open 1904.96, high 1915.38, low 1890.89, close 1898.66, volume 6393.0\n  D-3: open 1898.62, high 1916.24, low 1887.3, close 1913.16, volume 6415.0\n  D-2: open 1913.04, high 1919.26, low 1877.45, close 1877.59, volume 6200.0\n  D-1: open 1877.56, high 1896.73, low 1874.09, close 1887.26, volume 6497.0\n  D0: open 1887.33, high 1898.76, low 1882.4, close 1893.11, volume 6834.0\n\nSilver\n  D-6: open 24.17, high 24.29, low 23.21, close 23.21, volume 5385.0\n  D-5: open 23.21, high 24.12, low 23.2, close 23.75, volume 5526.0\n  D-4: open 23.76, high 24.12, low 23.52, close 23.69, volume 5400.0\n  D-3: open 23.69, high 24.41, low 23.68, close 24.36, volume 5510.0\n  D-2: open 24.37, high 24.45, low 23.02, close 23.02, volume 5286.0\n  D-1: open 23.02, high 23.91, low 23.02, close 23.8, volume 5497.0\n  D0: open 23.8, high 24.13, low 23.68, close 23.81, volume 5600.0\n\nDollar Index\n  D-6: open 93.87, high 94.19, low 93.67, close 93.89\n  D-5: open 93.83, high 93.92, low 93.53, close 93.71\n  D-4: open 93.74, high 94.03, low 93.69, close 93.84\n  D-3: open 93.81, high 93.87, low 93.37, close 93.51\n  D-2: open 93.41, high 93.85, low 93.33, close 93.69\n  D-1: open 93.81, high 93.9, low 93.56, close 93.63\n  D0: open 93.62, high 93.78, low 93.5, close 93.61\n\nUnited States 2-Year Bond Yield\n  D-6: open 0.13, high 0.13, low 0.12, close 0.13\n  D-5: open 0.13, high 0.14, low 0.13, close 0.13\n  D-4: open 0.13, high 0.14, low 0.12, close 0.13\n  D-3: open 0.13, high 0.15, low 0.13, close 0.15\n  D-2: open 0.15, high 0.15, low 0.14, close 0.15\n  D-1: open 0.15, high 0.16, low 0.15, close 0.16\n  D0: open 0.15, high 0.16, low 0.15, close 0.15\n\nUnited States 10-Year Bond Yield\n  D-6: open 0.65, high 0.7, low 0.64, close 0.68\n  D-5: open 0.69, high 0.72, low 0.67, close 0.68\n  D-4: open 0.68, high 0.71, low 0.65, close 0.69\n  D-3: open 0.71, high 0.78, low 0.7, close 0.76\n  D-2: open 0.78, high 0.79, low 0.73, close 0.74\n  D-1: open 0.74, high 0.8, low 0.74, close 0.79\n  D0: open 0.78, high 0.79, low 0.76, close 0.77",
+      "metadata": {
+        "source": "leaprate",
+        "market": "gold",
+        "date": "2020-10-08"
+      }
+    },
+    "human": "Gold is slightly up in the early trading, while volatility remains low. The spot price was unable to surpass the first key level of $1,895, continuing a slow dance just above $1,890. From a technical point of view, bullion remains in a lateral trading range between $1,850 and $2,070, waiting for a clear new direction."
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "id": "epa_3602291992",
+    "source": {
+      "case": {
+        "ACTIVITY_ID": "3602291992",
+        "ACTIVITY_NAME": "ITRON INC (COVID-19)",
+        "REGION_CODE": "04",
+        "FISCAL_YEAR": "2020",
+        "CASE_NUMBER": "04-2020-1403",
+        "CASE_NAME": "ITRON INC (COVID-19)",
+        "ACTIVITY_TYPE_CODE": "AFR",
+        "ACTIVITY_TYPE_DESC": "Administrative - Formal",
+        "ACTIVITY_STATUS_CODE": "CLS",
+        "ACTIVITY_STATUS_DESC": "Closed",
+        "ACTIVITY_STATUS_DATE": "08/03/2020",
+        "LEAD": "EPA",
+        "CASE_STATUS_DATE": "08/03/2020",
+        "ENF_OUTCOME_CODE": "EUO",
+        "ENF_OUTCOME_DESC": "Unilateral Administrative Order Without Adjudication",
+        "VOLUNTARY_SELF_DISCLOSURE_FLAG": "N"
+      },
+      "CASE_VIOLATIONS": [
+        {
+          "VIOLATION_TYPE_CODE": "IMP",
+          "VIOLATION_TYPE_DESC": "Imports Violation"
+        }
+      ],
+      "CASE_ENFORCEMENT_TYPE": [
+        {
+          "ENF_TYPE_CODE": "17C",
+          "ENF_TYPE_DESC": "FIFRA 17C Importation"
+        }
+      ],
+      "CASE_PENALTIES": [
+        {
+          "FED_PENALTY": "0",
+          "ST_LCL_PENALTY": "0",
+          "TOTAL_SEP": "0",
+          "COMPLIANCE_ACTION_COST": "0",
+          "PENALTY_COLLECTED_AMT": "0"
+        }
+      ],
+      "CASE_LAW_SECTIONS": [
+        {
+          "RANK_ORDER": "0",
+          "STATUTE_CODE": "FIFRA",
+          "LAW_SECTION_CODE": "12A2N",
+          "LAW_SECTION_DESC": "Failure to File Reports",
+          "ECHO_DESC": "Unregistered"
+        },
+        {
+          "RANK_ORDER": "1",
+          "STATUTE_CODE": "FIFRA",
+          "LAW_SECTION_CODE": "12A1A",
+          "LAW_SECTION_DESC": "Unregistered Pesticide",
+          "ECHO_DESC": "Unregistered"
+        }
+      ],
+      "CASE_FACILITIES": [
+        {
+          "REGISTRY_ID": "110000771246",
+          "FACILITY_NAME": "ITRON INC",
+          "LOCATION_ADDRESS": "2111 NORTH MOLTER ROAD",
+          "CITY": "LIBERTY LAKE",
+          "STATE_CODE": "WA",
+          "ZIP": "99019"
+        }
+      ],
+      "CASE_DEFENDANTS": [
+        {
+          "DEFENDANT_NAME": "ITRON INC",
+          "NAMED_IN_COMPLAINT_FLAG": "N",
+          "NAMED_IN_SETTLEMENT_FLAG": "Y"
+        }
+      ],
+      "CASE_MILESTONES": [
+        {
+          "SUB_ACTIVITY_TYPE_CODE": "CAFO",
+          "SUB_ACTIVITY_TYPE_DESC": "Final Order Issued",
+          "ACTUAL_DATE": "08/03/2020"
+        },
+        {
+          "SUB_ACTIVITY_TYPE_CODE": "ROPNA",
+          "SUB_ACTIVITY_TYPE_DESC": "Enforcement Action Data Entered",
+          "ACTUAL_DATE": "09/23/2020"
+        },
+        {
+          "SUB_ACTIVITY_TYPE_CODE": "CLSA",
+          "SUB_ACTIVITY_TYPE_DESC": "Enforcement Action Closed",
+          "ACTUAL_DATE": "08/03/2020"
+        }
+      ],
+      "CASE_POLLUTANTS": [
+        {
+          "POLLUTANT_CODE": "6662",
+          "POLLUTANT_DESC": "Pesticides, general"
+        }
+      ],
+      "CASE_PROGRAMS": [
+        {
+          "PROGRAM_CODE": "FIFRAU",
+          "PROGRAM_DESC": "Unregistered"
+        },
+        {
+          "PROGRAM_CODE": "RECORDKP",
+          "PROGRAM_DESC": "Recordkeeping"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSIONS": [
+        {
+          "ENF_CONCLUSION_ID": "3600232350",
+          "ENF_CONCLUSION_NMBR": "1",
+          "ENF_CONCLUSION_ACTION_CODE": "ECI",
+          "ENF_CONCLUSION_NAME": "ITRON INC",
+          "SETTLEMENT_ENTERED_DATE": "08/03/2020",
+          "SETTLEMENT_FY": "2020",
+          "PRIMARY_LAW": "FIFRA",
+          "REGION_CODE": "04",
+          "ACTIVITY_TYPE_CODE": "AFR",
+          "COMPLIANCE_ACTION_COST": "0"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_POLLUTANTS": [
+        {
+          "ENF_CONCLUSION_ID": "3600232350",
+          "COMP_ACTION_ID": "3600043517",
+          "ENVIRONMENTAL_IMPACT_ID": "3600030921",
+          "POLLUTANT_CODE": "6662",
+          "AVERAGE_ANNUAL_VALUE": "2345.72",
+          "POLLUTANT_UNIT_CODE": "lbs",
+          "MEDIA_CODE": "LAN",
+          "MEDIA_DESC": "Land",
+          "SEP_OR_COMP_FLAG": "C"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_COMPLYING_ACTIONS": [
+        {
+          "ENF_CONCLUSION_ID": "3600232350",
+          "COMP_ACTION_ID": "3600043517",
+          "COMP_ACTION_TYPE_CODE": "XIO",
+          "COMP_ACTION_TYPE_DESC": "Import Pesticide Returned to Foreign Origin",
+          "COMP_ACTION_CATEGORY_TYPE_DESC": "Reduction of Ongoing Releases"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_FACILITIES": [
+        {
+          "ENF_CONCLUSION_ID": "3600232350",
+          "ICIS_FACILITY_INTEREST_ID": "3601235296",
+          "FACILITY_UIN": "110000771246",
+          "FACILITY_NAME": "ITRON INC",
+          "FACILITY_CITY": "LIBERTY LAKE",
+          "FACILITY_STATE": "WA",
+          "FACILITY_ZIP": "99019"
+        }
+      ],
+      "CASE_ENFORCEMENT_CONCLUSION_DOLLARS": [
+        {
+          "ENF_CONCLUSION_ID": "3600232350",
+          "COST_RECOVERY_AMT": "0",
+          "FED_PENALTY": "0",
+          "COMPLIANCE_ACTION_COST": "0"
+        }
+      ],
+      "CASE_REGIONAL_DOCKETS": [
+        {
+          "REGIONAL_DOCKET_NMBR": "M34-74323862"
+        }
+      ]
+    },
+    "human": "8/3/2020 - NOTICE OF REFUSAL OF ADMISSION\nIT APPEARS THAT THE PRODUCT IS NOT IN COMPLIANCE WITH THE ACT AND IS SUBJECT TO REFUSAL OF ADMISSION DUE TO THE FOLLOWING VIOLATION(S):\n\nFIFRA 12(a)(1)(A) TO SELL OR DISTRIBUTE TO ANY PERSON ANY PESTICIDE THAT IS NOT REGISTERED UNDER SECTION 3 OR WHOSE REGISTRATION HAS BEEN CANCELLED OR SUSPENDED, EXCEPT TO THE EXTENT THAT DISTRIBUTION OR SALE OTHERWISE HAS BEEN AUTHORIZED BY THE ADMINISTRATOR UNDER FIFRA. SPECIFICALLY, THE PESTICIDE PRODUCT APPEARS TO BE MAKING ANTIBACTERIAL CLAIMS FOR USE ON SURFACES BUT DOES NOT APPEAR TO BE REGISTERED.\n\nFIFRA 12(a)(2)(N) FAILURE TO FILE REPORTS REQUIRED BY THE ACT. THE IMPORTER OR THE IMPORTER'S AGENT DID NOT COMPLETE AN ELECTRONIC ALTERNATIVE TO THE NOTICE OF ARRIVAL OF PESTICIDES AND DEVICES (NOA) EPA FORM 3540-1 FILED WITH THE ENTRY DOCUMENTATION VIA ANY U.S. CUSTOMS AND BORDER PROTECTION (CBP) AUTHORIZED ELECTRONIC DATA INTERCHANGE SYSTEM."
+  }
+]

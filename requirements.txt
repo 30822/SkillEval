@@ -1,0 +1,3 @@
+PyYAML>=6.0,<7
+# Only for `generate --execute` (extract/evaluate use the standard library HTTP client):
+openai>=1.0

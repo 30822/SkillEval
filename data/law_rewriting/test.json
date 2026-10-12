@@ -1,0 +1,8 @@
+[
+  {
+    "id": "155679",
+    "source": "If your mobile device is turned on, our network is collecting data about where it is.",
+    "human": "Our network is collecting geolocation data when your mobile device is turned on.",
+    "llm": "When your mobile device is turned on, our network collects data about its location."
+  }
+]

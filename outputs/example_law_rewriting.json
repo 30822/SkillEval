@@ -1,0 +1,155 @@
+{
+  "dataset": "law_rewriting",
+  "id": "155679",
+  "source": "If your mobile device is turned on, our network is collecting data about where it is.",
+  "human": "Our network is collecting geolocation data when your mobile device is turned on.",
+  "llm": "When your mobile device is turned on, our network collects data about its location.",
+  "match": [
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/40:1",
+      "name": "Replace a relational phrase with a compact category label",
+      "action": "When a source identifies a category through a short relational phrase, consider using a compact category label if the relationship remains clear in context.",
+      "source_quote": "data about where it is",
+      "reason": "This relational phrase describes information about the mobile device’s location; a compact category label such as location data could express that relationship."
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/242:2",
+      "name": "Make the affected item explicit",
+      "action": "When a pronoun refers to an item named nearby, consider naming that item again if doing so makes the operative statement easier to follow.",
+      "source_quote": "where it is",
+      "reason": "“It” refers clearly to the nearby “your mobile device”; naming the device again would make the data’s location referent explicit."
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/253:1",
+      "name": "State the action’s effect directly",
+      "action": "When a source frames an action as a means by which the reader will have a consequence, you may recast the action as the subject of a direct statement of its effect, if that preserves the same relationship. Keep the stated action, any timing condition, and the consequence.",
+      "source_quote": "If your mobile device is turned on, our network is collecting data about where it is.",
+      "reason": "The sentence links the condition of the device being turned on to the consequence that the network collects location data; the condition and consequence could be stated as the action's effect."
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/390:1",
+      "name": "Lead with the main assertion",
+      "action": "When a sentence begins with a subordinate condition and then gives its central assertion, consider stating the assertion first and placing the condition afterward, if the relationship remains clear.",
+      "source_quote": "If your mobile device is turned on, our network is collecting data about where it is.",
+      "reason": "The sentence leads with the condition that the device is turned on before stating the network’s data-collection practice."
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/397:1",
+      "name": "Use a direct information-acquisition verb",
+      "action": "Replace a broad verb for obtaining information with a familiar, direct verb that describes the same service activity.",
+      "source_quote": "our network is collecting data",
+      "reason": "The sentence describes the network obtaining information using the broad verb “collecting.”"
+    },
+    {
+      "skill_id": "law_rewriting/v24/content_packaging/40:2",
+      "name": "Use a compact label for an associated data category",
+      "action": "When the source describes data by its association with a particular subject, consider a compact category phrase that makes that relationship easy to grasp, provided the category remains equivalent.",
+      "source_quote": "data about where it is",
+      "reason": "The sentence describes data by its association with the mobile device—specifically, information about its location.",
+      "dedupe": {
+        "redundant_with": "law_rewriting/v24/explanation_construction/40:1",
+        "reason": "Both skills propose compactly labeling the same data-about-location phrase while preserving its association with the device; skill 40:1 best captures the relational phrase in this source."
+      }
+    }
+  ],
+  "checklist": [
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/40:1",
+      "name": "Replace a relational phrase with a compact category label",
+      "action": "When a source identifies a category through a short relational phrase, consider using a compact category label if the relationship remains clear in context.",
+      "human": {
+        "verdict": "pass",
+        "source_quote": "data about where it is",
+        "candidate_quote": "geolocation data",
+        "reason": "The candidate replaces the longer phrase describing where the device is with the concise category label “geolocation data,” while preserving that the information concerns the device’s location."
+      },
+      "llm": {
+        "verdict": "pass",
+        "source_quote": "data about where it is",
+        "candidate_quote": "data about its location",
+        "reason": "The candidate replaces the longer phrase describing where the device is with the compact label “its location,” while preserving that the data concerns the device’s location."
+      }
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/242:2",
+      "name": "Make the affected item explicit",
+      "action": "When a pronoun refers to an item named nearby, consider naming that item again if doing so makes the operative statement easier to follow.",
+      "human": {
+        "verdict": "fail",
+        "source_quote": "where it is",
+        "candidate_quote": "geolocation data when your mobile device is turned on",
+        "reason": "The source uses “it” to identify whose location is described. The candidate removes that pronoun but does not explicitly name the device as the subject of the location information; the device is named only in the condition."
+      },
+      "llm": {
+        "verdict": "fail",
+        "source_quote": "where it is",
+        "candidate_quote": "its location",
+        "reason": "The candidate still uses a pronoun (“its”) rather than naming the mobile device again, so it does not make the affected item explicit."
+      }
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/253:1",
+      "name": "State the action’s effect directly",
+      "action": "When a source frames an action as a means by which the reader will have a consequence, you may recast the action as the subject of a direct statement of its effect, if that preserves the same relationship. Keep the stated action, any timing condition, and the consequence.",
+      "human": {
+        "verdict": "fail",
+        "source_quote": "",
+        "candidate_quote": "",
+        "reason": "The source describes data collection under a condition; it does not frame an action as a means that produces a consequence for the reader."
+      },
+      "llm": {
+        "verdict": "fail",
+        "source_quote": "our network is collecting data about where it is",
+        "candidate_quote": "our network collects data about its location",
+        "reason": "The source does not frame an action as a means of producing a consequence for the reader; the candidate does not recast such a relationship."
+      }
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/390:1",
+      "name": "Lead with the main assertion",
+      "action": "When a sentence begins with a subordinate condition and then gives its central assertion, consider stating the assertion first and placing the condition afterward, if the relationship remains clear.",
+      "human": {
+        "verdict": "pass",
+        "source_quote": "If your mobile device is turned on, our network is collecting data about where it is.",
+        "candidate_quote": "Our network is collecting geolocation data when your mobile device is turned on.",
+        "reason": "The candidate leads with the network’s collection practice and places the equivalent timing condition afterward, preserving the condition’s relationship to the assertion."
+      },
+      "llm": {
+        "verdict": "fail",
+        "source_quote": "If your mobile device is turned on, our network is collecting data about where it is.",
+        "candidate_quote": "When your mobile device is turned on, our network collects data about its location.",
+        "reason": "The candidate retains the condition at the beginning rather than leading with the main assertion."
+      }
+    },
+    {
+      "skill_id": "law_rewriting/v24/explanation_construction/397:1",
+      "name": "Use a direct information-acquisition verb",
+      "action": "Replace a broad verb for obtaining information with a familiar, direct verb that describes the same service activity.",
+      "human": {
+        "verdict": "fail",
+        "source_quote": "is collecting data",
+        "candidate_quote": "is collecting geolocation data",
+        "reason": "The candidate retains the same acquisition verb, “collecting”; it does not replace the source verb with a different, more direct verb."
+      },
+      "llm": {
+        "verdict": "fail",
+        "source_quote": "is collecting data",
+        "candidate_quote": "collects data",
+        "reason": "The candidate keeps the same information-acquisition verb, “collect,” and only changes its tense/aspect; it does not replace a broad verb with a more direct one."
+      }
+    }
+  ],
+  "score": {
+    "human": {
+      "pass": 2,
+      "fail": 3,
+      "pass_rate": 0.4
+    },
+    "llm": {
+      "pass": 1,
+      "fail": 4,
+      "pass_rate": 0.2
+    },
+    "outcome": "human_wins"
+  }
+}

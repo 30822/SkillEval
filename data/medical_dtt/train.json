@@ -1,0 +1,113 @@
+[
+  {
+    "id": "B130EEF0857FACE372728C344C10B9ED",
+    "source": {
+      "product_name": "Qtrilmet",
+      "entities": [
+        {
+          "text": "qtrilmet",
+          "type": "PRODUCT_NAME"
+        },
+        {
+          "text": "qtrilmet",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "the active substances metformin",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "saxagliptin",
+          "type": "GENERIC_NAME",
+          "category": "MEDICATION"
+        },
+        {
+          "text": "dapagliflozin",
+          "type": "GENERIC_NAME",
+          "category": "MEDICATION"
+        },
+        {
+          "text": "medicines",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "this medicine",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "mouth",
+          "type": "SYSTEM_ORGAN_SITE",
+          "category": "ANATOMY"
+        },
+        {
+          "text": "diabetes",
+          "type": "DX_NAME",
+          "category": "MEDICAL_CONDITION"
+        },
+        {
+          "text": "type 2 diabetes\"",
+          "type": "PROBLEM"
+        },
+        {
+          "text": "2",
+          "type": "NUMBER"
+        },
+        {
+          "text": "type 2 diabetes",
+          "type": "DX_NAME",
+          "category": "MEDICAL_CONDITION"
+        },
+        {
+          "text": "your pancreas",
+          "type": "PROBLEM"
+        },
+        {
+          "text": "insulin",
+          "type": "GENERIC_NAME",
+          "category": "MEDICATION"
+        },
+        {
+          "text": "body",
+          "type": "SYSTEM_ORGAN_SITE",
+          "category": "ANATOMY"
+        },
+        {
+          "text": "the insulin",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "your blood",
+          "type": "TEST"
+        },
+        {
+          "text": "the three medicines",
+          "type": "TREATMENT"
+        },
+        {
+          "text": "18",
+          "type": "AGE",
+          "category": "PROTECTED_HEALTH_INFORMATION"
+        },
+        {
+          "text": "oral diabetes medicines",
+          "type": "TREATMENT_NAME",
+          "category": "TEST_TREATMENT_PROCEDURE"
+        },
+        {
+          "text": "your diabetes",
+          "type": "PROBLEM"
+        },
+        {
+          "text": "diabetes medicine",
+          "type": "TREATMENT_NAME",
+          "category": "TEST_TREATMENT_PROCEDURE"
+        },
+        {
+          "text": "a sulphonylurea",
+          "type": "TREATMENT"
+        }
+      ]
+    },
+    "human": "qtrilmet contains the active substances metformin, saxagliptin, and dapagliflozin. each belongs to a group of medicines called \"oral anti-diabetics\". this medicine is taken by mouth to treat diabetes and each of the active substances works in a different way to treat the condition. this medicine is for a type of diabetes called \"type 2 diabetes\". if you have type 2 diabetes, your pancreas does not make enough insulin or your body is not able to use the insulin it produces properly. this leads to a high level of sugar (glucose) in your blood. the three medicines in qtrilmet lower the amount of sugar in the blood by causing it to be taken up into cells or passed out of the body in the urine. qtrilmet is only given to adults aged 18 years and older. it is used if other oral diabetes medicines, along with diet and exercise, cannot control your diabetes well enough. it is taken on its own, or it can be combined with a different type of diabetes medicine called a sulphonylurea."
+  }
+]
