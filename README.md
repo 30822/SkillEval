@@ -108,25 +108,39 @@ experiments, place the full splits (500 TRAIN and 160 TEST examples per dataset)
 
 ## Pipeline
 
-```text
-data/<dataset>/train.json ──extract──▶ runs/<d>/<t>/pipeline/extraction/skills.json ──┐
-                                                                                       │ build-skills
-                                                                                       ▼ (dtt + rewriting + summary)
-                                                                     runs/<d>/pipeline/skills.json
-                                                                     (reviewed, then saved as skills/<d>.json)
+![Pipeline overview](image.png)
 
-data/<dataset>/test.json ──evaluate──▶ MATCH → DEDUPE → JUDGE(human, llm) → scores ◀── skills/<d>.json (task subset)
-                                          │
-                        runs/<d>/<t>/pipeline/evaluation/ ──verify──▶ verification.json
-```
+The pipeline has two phases. Skills are built **offline** from TRAIN pairs once per domain, and
+then used **online** to evaluate each TEST example.
 
-| Stage | Description |
-|---|---|
-| `generate` | Generates LLM outputs for the TEST sources. |
-| `extract` | Runs each EXTRACT pass over every TRAIN pair and keeps only observations marked `quality: supported` as skills. |
-| `build-skills` | Merges the extraction results of a domain's three tasks into a single domain catalog. |
-| `evaluate` | For each TEST source, MATCHes all skills of the task, DEDUPEs the applicable ones, and JUDGEs the human and LLM outputs (pass/fail) on each item. |
-| `verify` | Re-validates the stored matching, deduplication, and judgments and recomputes scores without any API calls. |
+### 1. Offline Skill Set Construction
+
+Each skill has three parts:
+
+| Part | Field | Example from the figure (*Clarify Patient Groups*) |
+|---|---|---|
+| Applicability conditions *c* | `applicability` (`all_of`, `exclude_if`) | The source uses coded group labels with group sizes and treatment timing. |
+| Expected writing behavior *b* | `action` | Replace coded labels with ordinal descriptions and clarify group details. |
+| Preservation constraints *p* | `preserve` | Preserve group sizes, treatment timing, and group distinctions. |
+
+| Step | Command | Description |
+|---|---|---|
+| 1-① Extract Observation | `extract` | Runs each EXTRACT pass over every TRAIN pair (source, human-written output) and records observations of how the human writer handled the source. |
+| 1-② Extract and Validate Skill | `extract` | Each observation is labeled with a quality; only `quality: supported` observations are kept as skills, and the rest are filtered out. |
+| | `build-skills` | Merges the skills of a domain's three tasks into one catalog (`runs/<domain>/pipeline/skills.json`), which is reviewed and saved as `skills/<domain>.json`. |
+
+### 2. Online Skill-Grounded Evaluation
+
+All three steps run in a single `evaluate` command.
+
+| Step | Prompt | Description |
+|---|---|---|
+| 2-① Retrieve Skills | MATCH | For each TEST source, checks the applicability conditions *c* of every skill of the task against the source alone. |
+| 2-② Construct Checklist | DEDUPE | Removes applicable skills that duplicate another kept skill on the same part of the source. The remaining skills form the checklist. |
+| 2-③ Judge with Checklist | JUDGE | Judges the human and LLM outputs separately against the same checklist (pass/fail per item) and scores each output. |
+
+Two other commands support the pipeline: `generate` produces the LLM outputs for the TEST sources, and
+`verify` re-validates a stored evaluation run and recomputes its scores without any API calls.
 
 **Scoring.** Each checklist item that passes is worth one point. For each test example, the output
 with more passing items wins (ties are counted separately). **JRR** is the fraction of examples in which
