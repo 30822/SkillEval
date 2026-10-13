@@ -1,7 +1,7 @@
-# When Fluency Beats Compliance: Judgment Reversal in Evaluating Domain-Specific Writing
+# Revealing Judgment Reversal in Evaluating Domain-Specific Writing
 
 This repository contains the code, prompts, and skill catalogs for the paper
-**"When Fluency Beats Compliance: Judgment Reversal in Evaluating Domain-Specific Writing."**
+**"Revealing Judgment Reversal in Evaluating Domain-Specific Writing."**
 
 We study whether LLM-generated text that reads fluently actually complies with the writing conventions
 that experts follow in specialized domains. For nine tasks spanning three domains (**finance**,
