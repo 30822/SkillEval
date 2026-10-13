@@ -35,7 +35,7 @@ pip install -r requirements.txt
 python examples/skeleton_demo.py            # offline: freeze, pair, gate (dry run), aggregate a toy score
 python examples/reversal/show_reversal.py   # two reversal examples
 ```
-`cp .env.example .env` and add keys only for live (`--yes`) runs.
+For live (`--yes`) runs, create a `.env` file with `OPENAI_API_KEY` and/or `OPENROUTER_API_KEY`.
 
 ## Judgment-reversal examples
 `examples/reversal/reversal_examples.json` holds two EPA pairs in which all seven judges, and the gpt6-luna

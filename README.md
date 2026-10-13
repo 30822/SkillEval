@@ -20,6 +20,7 @@ that experts follow in specialized domains. For nine tasks spanning three domain
 ├── LICENSE
 ├── config.yaml                 # Models, batch sizes, and per-dataset settings
 ├── requirements.txt
+├── baseline/                   # Evaluation pipeline skeleton (see baseline/README.md)
 ├── common/                     # Shared code (all nine tasks use the same pipeline)
 │   ├── run.py                  # Single command-line entry point
 │   ├── config.py
@@ -37,8 +38,7 @@ that experts follow in specialized domains. For nine tasks spanning three domain
 ├── prompts/<domain>/<task>.py  # Task-specific prompts: GENERATION, EXTRACT, MATCH, DEDUPE, JUDGE
 ├── skills/<domain>.json        # Domain skill catalogs (task-specific skills under topics.<task>.skills)
 ├── outputs/                    # Example evaluation output
-├── data/<dataset>/             # train.json / test.json (one sample row each)
-└── tests/                      # Offline tests
+└── data/<dataset>/             # train.json / test.json (one sample row each)
 ```
 
 Datasets are named `<domain>_<task>`, e.g. `finance_dtt`, `medical_summary`, `law_rewriting`.
@@ -49,10 +49,9 @@ Tested with Python 3.13.
 
 ```bash
 pip install -r requirements.txt
-cp .env.example .env   # then fill in your API keys
 ```
 
-The following environment variables are read from `.env`:
+Create a `.env` file in the repository root with the following API keys:
 
 | Variable | Used for |
 |---|---|
@@ -184,15 +183,13 @@ judgments for both outputs, and the resulting scores.
 Every run folder also contains `manifest.json`, which records the model, prompt hashes, and settings, and
 `failures.json`, which lists failed requests.
 
-## Testing
+## Sanity Check
 
 ```bash
-python -m unittest discover -s tests
 python -m common.verify
 ```
 
-The tests use a fake API client to run `extract → evaluate → verify` for all nine tasks, and check that
-evaluation filters the domain catalog produced by `build-skills` down to the skills of the given task.
+Checks the configuration, prompts, skill catalogs, and data of all nine datasets without any API calls.
 
 ## License
 
