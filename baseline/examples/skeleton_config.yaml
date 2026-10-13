@@ -1,0 +1,10 @@
+# Minimal run config for examples/skeleton_demo.py. A real run adds model_params, prompts and evaluator settings.
+dataset: skeleton_demo
+run_tag: skeleton_demo_01
+ledger_script: examples/skeleton_demo.py
+models:
+  judge: openai/gpt-6-luna
+model_params:
+  judge:
+    temperature: 0
+    max_tokens: 200

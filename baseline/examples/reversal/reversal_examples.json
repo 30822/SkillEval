@@ -1,0 +1,273 @@
+{
+ "description": "Two pairs where every judge prefers the LLM text over the human-written reference (judgment reversal). Source: EPA ICIS-FE&C / ECHO enforcement summaries (US government data). geval = mean of the four general axes (coherence, consistency, fluency, relevance), normalized to 0-1. Caveat: the EPA reference text is attorney-supplied case information and is not always a summary of the exported record (the first pair is an excerpt of a letter), so part of the reversal reflects reference quality.",
+ "pairs": [
+  {
+   "id": "epa_3604441411",
+   "cell": "law_dtt",
+   "task": "data-to-text (EPA enforcement record -> case summary)",
+   "input": "{\n  \"case\": {\n    \"ACTIVITY_ID\": \"3604441411\",\n    \"ACTIVITY_NAME\": \"SWEETGRASS, PORT OF\",\n    \"REGION_CODE\": \"08\",\n    \"FISCAL_YEAR\": \"2025\",\n    \"CASE_NUMBER\": \"08-2025-0109\",\n    \"CASE_NAME\": \"SWEETGRASS, PORT OF\",\n    \"ACTIVITY_TYPE_CODE\": \"AFR\",\n    \"ACTIVITY_TYPE_DESC\": \"Administrative - Formal\",\n    \"ACTIVITY_STATUS_CODE\": \"FOI\",\n    \"ACTIVITY_STATUS_DESC\": \"Final Order Issued\",\n    \"ACTIVITY_STATUS_DATE\": \"04/22/2025\",\n    \"LEAD\": \"EPA\",\n    \"CASE_STATUS_DATE\": \"04/22/2025\",\n    \"VOLUNTARY_SELF_DISCLOSURE_FLAG\": \"N\"\n  },\n  \"CASE_ENFORCEMENT_TYPE\": [\n    {\n      \"ENF_TYPE_CODE\": \"2051\",\n      \"ENF_TYPE_DESC\": \"CAA 205 Action For Vehicles and Engines\"\n    }\n  ],\n  \"CASE_PENALTIES\": [\n    {\n      \"FED_PENALTY\": \"0\",\n      \"ST_LCL_PENALTY\": \"0\",\n      \"TOTAL_SEP\": \"0\",\n      \"COMPLIANCE_ACTION_COST\": \"0\",\n      \"PENALTY_COLLECTED_AMT\": \"0\"\n    }\n  ],\n  \"CASE_LAW_SECTIONS\": [\n    {\n      \"RANK_ORDER\": \"1\",\n      \"STATUTE_CODE\": \"CAA\",\n      \"LAW_SECTION_CODE\": \"203\",\n      \"LAW_SECTION_DESC\": \"Prohibited Acts - Motor Vehicle & Motor Vehicle  Engines\",\n      \"ECHO_DESC\": \"Mobile Sources\"\n    }\n  ],\n  \"CASE_FACILITIES\": [\n    {\n      \"REGISTRY_ID\": \"110070566300\",\n      \"FACILITY_NAME\": \"SWEETGRASS, PORT OF\",\n      \"LOCATION_ADDRESS\": \"39825 INTERSTATE 15\",\n      \"CITY\": \"SWEETGRASS\",\n      \"STATE_CODE\": \"MT\",\n      \"ZIP\": \"59484\"\n    }\n  ],\n  \"CASE_DEFENDANTS\": [\n    {\n      \"DEFENDANT_NAME\": \"Can-Am Auto Inc.\",\n      \"NAMED_IN_COMPLAINT_FLAG\": \"Y\",\n      \"NAMED_IN_SETTLEMENT_FLAG\": \"Y\"\n    }\n  ],\n  \"CASE_MILESTONES\": [\n    {\n      \"SUB_ACTIVITY_TYPE_CODE\": \"CAFO\",\n      \"SUB_ACTIVITY_TYPE_DESC\": \"Final Order Issued\",\n      \"ACTUAL_DATE\": \"04/22/2025\"\n    },\n    {\n      \"SUB_ACTIVITY_TYPE_CODE\": \"ROPNA\",\n      \"SUB_ACTIVITY_TYPE_DESC\": \"Enforcement Action Data Entered\",\n      \"ACTUAL_DATE\": \"06/25/2025\"\n    }\n  ],\n  \"CASE_PROGRAMS\": [\n    {\n      \"PROGRAM_CODE\": \"CAAMS\",\n      \"PROGRAM_DESC\": \"Mobile Sources\"\n    }\n  ],\n  \"CASE_ENFORCEMENT_CONCLUSIONS\": [\n    {\n      \"ENF_CONCLUSION_ID\": \"3600525604\",\n      \"ENF_CONCLUSION_NMBR\": \"1\",\n      \"ENF_CONCLUSION_ACTION_CODE\": \"ECI\",\n      \"ENF_CONCLUSION_NAME\": \"SWEETGRASS, PORT OF\",\n      \"SETTLEMENT_ENTERED_DATE\": \"04/22/2025\",\n      \"SETTLEMENT_FY\": \"2025\",\n      \"PRIMARY_LAW\": \"CAA\",\n      \"REGION_CODE\": \"08\",\n      \"ACTIVITY_TYPE_CODE\": \"AFR\",\n      \"COMPLIANCE_ACTION_COST\": \"0\"\n    }\n  ],\n  \"CASE_ENFORCEMENT_CONCLUSION_FACILITIES\": [\n    {\n      \"ENF_CONCLUSION_ID\": \"3600525604\",\n      \"ICIS_FACILITY_INTEREST_ID\": \"3601103136\",\n      \"FACILITY_UIN\": \"110070566300\",\n      \"FACILITY_NAME\": \"SWEETGRASS, PORT OF\",\n      \"FACILITY_CITY\": \"SWEETGRASS\",\n      \"FACILITY_STATE\": \"MT\",\n      \"FACILITY_ZIP\": \"59484\"\n    }\n  ],\n  \"CASE_ENFORCEMENT_CONCLUSION_DOLLARS\": [\n    {\n      \"ENF_CONCLUSION_ID\": \"3600525604\",\n      \"COST_RECOVERY_AMT\": \"0\",\n      \"FED_PENALTY\": \"0\",\n      \"COMPLIANCE_ACTION_COST\": \"0\"\n    }\n  ]\n}",
+   "human": "The U.S. Environmental Protection Agency (EPA) has reviewed the above-referenced entry for\ncompliance with the Clean Air Act (Act) and by this letter conveys to U.S. Customs and Border\nProtection (CBP) its recommendation that the Subject Vehicle be seized, exported, or otherwise denied\nentry. This letter summarizes the applicable law and details EPA?s determination and recommendation.",
+   "llm": "On April 22, 2025, EPA Region 8 issued a final administrative order in a Clean Air Act enforcement case involving Can-Am Auto Inc. and the Port of Sweetgrass in Sweetgrass, Montana. The action concerned Clean Air Act Section 203, which addresses prohibited acts involving motor vehicles and engines, and was classified as a Section 205 action for vehicles and engines. The record reports no federal or state/local penalty, compliance action cost, cost recovery, or supplemental environmental project value.",
+   "evidence": {
+    "pairwise_gpt6-luna_both_orders": {
+     "llm_first": {
+      "picked": "llm",
+      "reason": "A accurately summarizes the recorded final order, parties, location, Clean Air Act provisions, and zero reported penalty and cost amounts. B invents a letter to CBP and a recommendation to seize or deny entry, none of which is supported by the record."
+     },
+     "gt_first": {
+      "picked": "llm",
+      "reason": "B accurately summarizes the recorded parties, date, location, Clean Air Act section, action type, and zero dollar amounts. A invents a letter to CBP and a recommendation to seize or deny entry, none of which is supported by the record."
+     }
+    },
+    "geval_general_axes_per_judge": {
+     "GPT6-sol": {
+      "human_geval": 0.25,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.5,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.0
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "gpt6-luna": {
+      "human_geval": 0.4375,
+      "llm_geval": 0.9375,
+      "human_axes": {
+       "coherence": 0.75,
+       "consistency": 0.0,
+       "fluency": 1.0,
+       "relevance": 0.0
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 0.75,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "Sonnet5.5": {
+      "human_geval": 0.1875,
+      "llm_geval": 0.875,
+      "human_axes": {
+       "coherence": 0.25,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.0
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 0.75,
+       "fluency": 1.0,
+       "relevance": 0.75
+      }
+     },
+     "gemini3.1pro": {
+      "human_geval": 0.3125,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.75,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.0
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "gemini3.8flash": {
+      "human_geval": 0.1875,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.25,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.0
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "deepseek-v4": {
+      "human_geval": 0.0,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.0,
+       "consistency": 0.0,
+       "fluency": 0.0,
+       "relevance": 0.0
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "qwen3.8": {
+      "human_geval": 0.1875,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.25,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.0
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     }
+    }
+   }
+  },
+  {
+   "id": "epa_3600244501",
+   "cell": "law_dtt",
+   "task": "data-to-text (EPA enforcement record -> case summary)",
+   "input": "{\n  \"case\": {\n    \"ACTIVITY_ID\": \"3600244501\",\n    \"ACTIVITY_NAME\": \"ANDREW HOLT AND ELEANORE F. HOLT dba A&E LIVESTOCK\",\n    \"REGION_CODE\": \"04\",\n    \"FISCAL_YEAR\": \"2015\",\n    \"CASE_NUMBER\": \"04-2015-4506\",\n    \"CASE_NAME\": \"ANDREW HOLT AND ELEANORE F. HOLT dba A&E LIVESTOCK\",\n    \"ACTIVITY_TYPE_CODE\": \"AFR\",\n    \"ACTIVITY_TYPE_DESC\": \"Administrative - Formal\",\n    \"ACTIVITY_STATUS_CODE\": \"CLS\",\n    \"ACTIVITY_STATUS_DESC\": \"Closed\",\n    \"ACTIVITY_STATUS_DATE\": \"03/25/2016\",\n    \"LEAD\": \"EPA\",\n    \"CASE_STATUS_DATE\": \"03/25/2016\",\n    \"ENF_OUTCOME_CODE\": \"EWR\",\n    \"ENF_OUTCOME_DESC\": \"Withdrawn by Region/State\",\n    \"VOLUNTARY_SELF_DISCLOSURE_FLAG\": \"N\"\n  },\n  \"CASE_ENFORCEMENT_TYPE\": [\n    {\n      \"ENF_TYPE_CODE\": \"309G2A\",\n      \"ENF_TYPE_DESC\": \"CWA 309G2A AO For Class I Penalties\"\n    }\n  ],\n  \"CASE_LAW_SECTIONS\": [\n    {\n      \"RANK_ORDER\": \"0\",\n      \"STATUTE_CODE\": \"CWA\",\n      \"LAW_SECTION_CODE\": \"301\",\n      \"LAW_SECTION_DESC\": \"NPDES Discharge without a Permit\",\n      \"ECHO_DESC\": \"Concentrated Animal Feeding Operations, Other Unpermitted Discharges\"\n    },\n    {\n      \"RANK_ORDER\": \"1\",\n      \"STATUTE_CODE\": \"CWA\",\n      \"LAW_SECTION_CODE\": \"301/402\",\n      \"LAW_SECTION_DESC\": \"NPDES Permit Violations\",\n      \"ECHO_DESC\": \"Concentrated Animal Feeding Operations, Other Unpermitted Discharges\"\n    }\n  ],\n  \"CASE_FACILITIES\": [\n    {\n      \"REGISTRY_ID\": \"110056161479\",\n      \"FACILITY_NAME\": \"A & E LIVESTOCK\",\n      \"LOCATION_ADDRESS\": \"357 WOODRUFF ROAD\",\n      \"CITY\": \"DRESDEN\",\n      \"STATE_CODE\": \"TN\",\n      \"ZIP\": \"38225\"\n    }\n  ],\n  \"CASE_DEFENDANTS\": [\n    {\n      \"DEFENDANT_NAME\": \"A&E LIVESTOCK\",\n      \"NAMED_IN_COMPLAINT_FLAG\": \"Y\",\n      \"NAMED_IN_SETTLEMENT_FLAG\": \"N\"\n    },\n    {\n      \"DEFENDANT_NAME\": \"ANDREW H. HOLT\",\n      \"NAMED_IN_COMPLAINT_FLAG\": \"Y\",\n      \"NAMED_IN_SETTLEMENT_FLAG\": \"N\"\n    },\n    {\n      \"DEFENDANT_NAME\": \"ELEANORE F. HOLT\",\n      \"NAMED_IN_COMPLAINT_FLAG\": \"Y\",\n      \"NAMED_IN_SETTLEMENT_FLAG\": \"N\"\n    }\n  ],\n  \"CASE_MILESTONES\": [\n    {\n      \"SUB_ACTIVITY_TYPE_CODE\": \"ROPNA\",\n      \"SUB_ACTIVITY_TYPE_DESC\": \"Enforcement Action Data Entered\",\n      \"ACTUAL_DATE\": \"09/04/2015\"\n    },\n    {\n      \"SUB_ACTIVITY_TYPE_CODE\": \"CPOA\",\n      \"SUB_ACTIVITY_TYPE_DESC\": \"Complaint Filed/Proposed Order\",\n      \"ACTUAL_DATE\": \"08/13/2015\"\n    },\n    {\n      \"SUB_ACTIVITY_TYPE_CODE\": \"CLSA\",\n      \"SUB_ACTIVITY_TYPE_DESC\": \"Enforcement Action Closed\",\n      \"ACTUAL_DATE\": \"03/25/2016\"\n    }\n  ],\n  \"CASE_PROGRAMS\": [\n    {\n      \"PROGRAM_CODE\": \"CWACAFO\",\n      \"PROGRAM_DESC\": \"NPDES - Concentrated Animal Feeding Operations (CAFOs)\"\n    },\n    {\n      \"PROGRAM_CODE\": \"CWAOUPD\",\n      \"PROGRAM_DESC\": \"NPDES - Other Unpermitted Discharges\"\n    }\n  ],\n  \"CASE_PRIORITIES\": [\n    {\n      \"PRIORITY_CODE\": \"1912\",\n      \"PRIORITY_DESC\": \"WW - CAFO\",\n      \"FISCAL_YEAR\": \"2015\"\n    }\n  ],\n  \"CASE_REGIONAL_DOCKETS\": [\n    {\n      \"REGIONAL_DOCKET_NMBR\": \"CWA-04-2015-4506\"\n    }\n  ]\n}",
+   "human": "8/13/15 - ADMIN COMPLAINT FILED, PROPOSING A PENALTY OF UP TO $16,000 PER VIOLATION UP TO A MAXIMUM AMOUNT OF $177,500.\n\nALLEGATIONS: RESPONDENTS VIOLATED CWA 301(a) BY DISCHARGING PROCESS WASTEWATER FROM THE FACILITY W/OUT AUTHORIZATION BY AN NPDES PERMIT.",
+   "llm": "In 2015, EPA Region 4 initiated a formal administrative enforcement action against A&E Livestock, Andrew H. Holt, and Eleanore F. Holt concerning the A & E Livestock facility at 357 Woodruff Road in Dresden, Tennessee. The action cited alleged Clean Water Act violations involving discharge without an NPDES permit and NPDES permit violations, in connection with the concentrated animal feeding operations and other unpermitted discharges programs. EPA filed a complaint or proposed order on August 13, 2015. The action was closed on March 25, 2016, with the outcome recorded as withdrawn by the Region or State. The record does not report a settlement or penalty.",
+   "evidence": {
+    "pairwise_gpt6-luna_both_orders": {
+     "llm_first": {
+      "picked": "llm",
+      "reason": "A accurately summarizes the recorded parties, facility, Clean Water Act sections, milestone dates, and withdrawn outcome, while noting that no settlement or penalty is reported. B invents a proposed penalty amount and specific wastewater allegations not supported by the supplied record."
+     },
+     "gt_first": {
+      "picked": "llm",
+      "reason": "B accurately summarizes the parties, facility, alleged Clean Water Act violations, filing and closure dates, and withdrawn outcome using the supplied record. A adds unsupported penalty amounts and a specific wastewater allegation, and omits the case’s closure and outcome."
+     }
+    },
+    "geval_general_axes_per_judge": {
+     "GPT6-sol": {
+      "human_geval": 0.4375,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.75,
+       "consistency": 0.25,
+       "fluency": 0.5,
+       "relevance": 0.25
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "gpt6-luna": {
+      "human_geval": 0.5,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.75,
+       "consistency": 0.25,
+       "fluency": 0.5,
+       "relevance": 0.5
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "Sonnet5.5": {
+      "human_geval": 0.3125,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.5,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.25
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "gemini3.1pro": {
+      "human_geval": 0.3125,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.5,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.25
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "gemini3.8flash": {
+      "human_geval": 0.375,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.5,
+       "consistency": 0.25,
+       "fluency": 0.5,
+       "relevance": 0.25
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "deepseek-v4": {
+      "human_geval": 0.25,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.25,
+       "consistency": 0.0,
+       "fluency": 0.5,
+       "relevance": 0.25
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     },
+     "qwen3.8": {
+      "human_geval": 0.4375,
+      "llm_geval": 1.0,
+      "human_axes": {
+       "coherence": 0.5,
+       "consistency": 0.25,
+       "fluency": 0.5,
+       "relevance": 0.5
+      },
+      "llm_axes": {
+       "coherence": 1.0,
+       "consistency": 1.0,
+       "fluency": 1.0,
+       "relevance": 1.0
+      }
+     }
+    }
+   }
+  }
+ ]
+}
